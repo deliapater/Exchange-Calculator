@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedCurrencyRates: {},
       inputNumber: null,
       result: null,
-    
+      reverseResult: null
+
     },
     mounted: function(){
       this.getRates()
@@ -24,14 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
       },
 
       currencySelect: function(){
-      this.selectedCurrency = this.currencies[this.selectedCurrencyIndex]
-    },
-
-      exchangeResult: function(){
-        this.result = this.selectedCurrency * this.inputNumber
+        this.selectedCurrency = this.currencies[this.selectedCurrencyIndex]
       },
 
+      exchangeResult: function(){
+        if(this.inputNumber > 0){
+          this.result = this.selectedCurrency * this.inputNumber
+        }
+      },
 
+      reverse: function(){
+        this.reverseResult = this.selectedCurrency % this.inputNumber
       }
+
+    }
   })
 })

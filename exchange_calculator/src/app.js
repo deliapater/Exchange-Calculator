@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
       currencies: [],
       selectedCurrencyIndex: "",
       selectedCurrency: null,
-      selectedCurrencyRates: {}
+      selectedCurrencyRates: {},
+      addSelectedExchange: []
 
     },
     mounted: function(){
@@ -21,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => this.currencies = data.rates)
       },
 
+      currencySelect: function(){
+      this.selectedCurrency = this.currencies[this.selectedCurrencyIndex]
+    },
+
+      exchangeResult: function(){
+        this.selectedCurrency * number
+      }
       }
   })
 })
